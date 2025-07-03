@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanban Pizza Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Kanban Pizza Game 🍕</h1>
+
+  <div class="controls">
+    <button id="start-round">▶️ Start Round</button>
+    <span id="timer">⏱ 07:00</span>
+    <span id="round-count">Round: 1</span>
+    <span id="done-count">✅ Done: 0</span>
+  </div>
+
+  <form id="add-task-form">
+    <input type="text" id="task-input" placeholder="Enter pizza name..." required />
+    <select id="topping-select">
+      <option value="🍍🍖🍅">🍍🍖🍅 (Pineapple, Ham, Tomato)</option>
+      <option value="🍄🧅🫑">🍄🧅🫑 (Mushroom, Onion, Pepper)</option>
+      <option value="🧀🍅🍖">🧀🍅🍖 (Cheese, Tomato, Ham)</option>
+    </select>
+    <button type="submit">Add Pizza</button>
+  </form>
+
+  <div class="board">
+    <div class="column" id="todo">
+      <h2>To Do</h2>
+      <div class="cards"></div>
+    </div>
+    <div class="column" id="inprogress" data-wip-limit="3">
+      <h2>In Progress (Max 3)</h2>
+      <div class="cards"></div>
+    </div>
+    <div class="column" id="done">
+      <h2>Done</h2>
+      <div class="cards"></div>
+    </div>
+  </div>
+
+  <div id="retrospective" class="modal hidden">
+    <div class="modal-content">
+      <h3>📝 Retrospective</h3>
+      <p>Round Complete! Reflect with your team:</p>
+      <ul>
+        <li>✅ What worked well?</li>
+        <li>⚠️ What could be improved?</li>
+        <li>💡 What will we try next round?</li>
+      </ul>
+      <button onclick="closeRetrospective()">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
